@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto 120px auto;
+  display: flex;
+  max-width: 522px;
+}
+
+.circle {
+  margin: 0 auto;
+  width: min-content;
+  display: flex;
+  gap: 16px;
+}
