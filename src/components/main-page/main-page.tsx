@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ interface MainPageProps {
   extraClass?: string;
 }
 
-export const MainPage: React.FC<MainPageProps> = ({ extraClass = "" }) => {
+export const MainPage: FC<MainPageProps> = ({ extraClass = "" }) => {
   return (
     <main className={`${styles.content} ${extraClass}`}>
       <div className={styles.title_box}>

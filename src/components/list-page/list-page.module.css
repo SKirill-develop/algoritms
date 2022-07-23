@@ -1,0 +1,31 @@
+.container {
+  margin: 0 auto 148px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  max-width: 952px;
+  width: 100%;
+}
+
+.circles{
+  margin: 52px auto 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.addButton {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.deleteButton {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
