@@ -109,7 +109,7 @@ const copyArray = (arr: TArray) => {
       newEl[key] = item[key];
     }
     //@ts-ignore
-    copyArray[index] = newEl;
+    cloneArray[index] = newEl;
   });
   return cloneArray;
 };
