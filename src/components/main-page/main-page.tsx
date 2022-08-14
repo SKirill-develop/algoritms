@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ interface MainPageProps {
   extraClass?: string;
 }
 
-export const MainPage: React.FC<MainPageProps> = ({ extraClass = "" }) => {
+export const MainPage: FC<MainPageProps> = ({ extraClass = "" }) => {
   return (
     <main className={`${styles.content} ${extraClass}`}>
       <div className={styles.title_box}>
@@ -22,22 +22,22 @@ export const MainPage: React.FC<MainPageProps> = ({ extraClass = "" }) => {
         </p>
       </div>
       <div className={styles.cards_box}>
-        <Link className={styles.link} to="/recursion">
+        <Link className={styles.link} to="/recursion" data-testid="recursion">
           <div className={`${styles.card} ${styles.string}`} />
         </Link>
-        <Link className={styles.link} to="/fibonacci">
+        <Link className={styles.link} to="/fibonacci" data-testid="fibonacci">
           <div className={`${styles.card} ${styles.fibonacci}`} />
         </Link>
-        <Link className={styles.link} to="/sorting">
+        <Link className={styles.link} to="/sorting" data-testid="sorting">
           <div className={`${styles.card} ${styles.arr}`} />
         </Link>
-        <Link className={styles.link} to="/stack">
+        <Link className={styles.link} to="/stack" data-testid="stack">
           <div className={`${styles.card} ${styles.stack}`} />
         </Link>
-        <Link className={styles.link} to="/queue">
+        <Link className={styles.link} to="/queue" data-testid="queue">
           <div className={`${styles.card} ${styles.queue}`} />
         </Link>
-        <Link className={styles.link} to="/list">
+        <Link className={styles.link} to="/list" data-testid="list">
           <div className={`${styles.card} ${styles.list}`} />
         </Link>
       </div>

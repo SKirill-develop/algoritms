@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto 120px auto;
+  display: flex;
+  max-width: 522px;
+}
+
+.circle {
+  margin: 0 auto;
+  gap: 16px;
+  display: flex;
+  justify-content: center;
+  row-gap: 78px;
+  max-width: 944px;
+  flex-wrap: wrap;
+}
