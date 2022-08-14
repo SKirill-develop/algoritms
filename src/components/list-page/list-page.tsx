@@ -6,7 +6,7 @@ import { Circle } from "../ui/circle/circle";
 import { ElementStates } from "../../types/element-states";
 import { ArrowIcon } from "../ui/icons/arrow-icon";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
-import { DELAY_IN_MS } from "../../constants/delays";
+import { SHORT_DELAY_IN_MS } from "../../constants/delays";
 import styles from "./list-page.module.css";
 
 type TElState = {
@@ -87,7 +87,7 @@ export const ListPage: FC = () => {
 
         return nextStep;
       });
-    }, DELAY_IN_MS);
+    }, SHORT_DELAY_IN_MS);
   };
 
   const getDefaultLinkedListValue = (array: (number | string)[] | null) => {
@@ -363,7 +363,9 @@ export const ListPage: FC = () => {
       arraySteps.push(copyArray(initialArr));
       i++;
     }
-    initialArr[i - 1].head = null;
+    if (i - 1 !== 0) {
+      initialArr[i - 1].head = null;
+    }
     initialArr[i - 1].state = ElementStates.Changing;
     initialArr[i].head = (
       <Circle
@@ -414,36 +416,42 @@ export const ListPage: FC = () => {
           placeholder="Введите значение"
           onChange={onChangeEl}
           value={elInputValue}
+          data-testid="elInput"
           disabled={buttonsState.elInputValue === 'disabled'}
         />
         <Button
           text="Добавить в head"
           onClick={pushElToHead}
           disabled={buttonsState.addToHead === "disabled" || !elInputValue}
+          data-testid="addToHeadButton"
           isLoader={buttonsState.addToHead === "isLoader"}
         />
         <Button
           text="Добавить в tail"
           onClick={pushElToTail}
           disabled={buttonsState.addToTail === "disabled" || !elInputValue}
+          data-testid="addToTailButton"
           isLoader={buttonsState.addToTail === "isLoader"}
         />
         <Button
           text="Удалить из head"
           onClick={deleteHead}
           disabled={buttonsState.deleteFromHead === "disabled" || linkedListValue?.length === 0}
+          data-testid="removeFromHeadButton"
           isLoader={buttonsState.deleteFromHead === "isLoader"}
         />
         <Button
           text="Удалить из tail"
           onClick={deleteTail}
           disabled={buttonsState.deleteFromTail === "disabled" || linkedListValue?.length === 0}
+          data-testid="removeFromTailButton"
           isLoader={buttonsState.deleteFromTail === "isLoader"}
         />
         <Input
           placeholder="Введите индекс"
           onChange={onChangeIndex}
           value={`${indexInputValue}`}
+          data-testid="indexInput"
           disabled={buttonsState.indexInputValue === 'disabled'}
         />
         <Button
@@ -451,6 +459,7 @@ export const ListPage: FC = () => {
           extraClass={styles.addIndexButton}
           onClick={pushByIndex}
           disabled={buttonsState.addByIndex === "disabled" || (!elInputValue || !indexInputValue)}
+          data-testid="addByIndexButton"
           isLoader={buttonsState.addByIndex === "isLoader"}
         />
         <Button
@@ -458,6 +467,7 @@ export const ListPage: FC = () => {
           extraClass={styles.deleteIndexButton}
           onClick={deleteByIndex}
           disabled={buttonsState.deleteByIndex === "disabled" || !indexInputValue}
+          data-testid="deleteByIndexButton"
           isLoader={buttonsState.deleteByIndex === "isLoader"}
         />
       </div>

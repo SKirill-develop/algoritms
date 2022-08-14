@@ -78,13 +78,14 @@ export const StackPage: FC = () => {
             extraClass={styles.input}
             maxLength={4}
             isLimitText={true}
+            data-testid="input"
           />
-          <Button text="Добавить" onClick={pushElement} disabled={!value} />
-          <Button text="Удалить" onClick={deleteElement} disabled={!stackValue.length} />
+          <Button text="Добавить" onClick={pushElement} disabled={!value} data-testid="button"/>
+          <Button text="Удалить" onClick={deleteElement} disabled={!stackValue.length}  data-testid="deleteButton"/>
         </div>
-        <Button text="Очистить" onClick={clearStack} disabled={!stackValue.length} />
+        <Button text="Очистить" onClick={clearStack} disabled={!stackValue.length}  data-testid="clearButton"/>
       </div>
-      <div className={styles.circles}>
+      <div className={styles.circles} data-testid="circlesContainer">
         {stackValue.length
           ? stackValue.map((item, index) => (
             <Circle

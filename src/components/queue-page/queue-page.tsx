@@ -102,13 +102,14 @@ export const QueuePage: FC = () => {
             extraClass={styles.input}
             maxLength={4}
             isLimitText={true}
+            data-testid="input"
           />
-          <Button text="Добавить" disabled={!value} onClick={addEl} />
-          <Button text="Удалить" onClick={deleteEl} />
+          <Button text="Добавить" disabled={!value} onClick={addEl} data-testid="addButton"/>
+          <Button text="Удалить" onClick={deleteEl} data-testid="deleteButton"/>
         </div>
-        <Button text="Очистить" onClick={clearQueue} />
+        <Button text="Очистить" onClick={clearQueue} data-testid="clearButton"/>
       </div>
-      <div className={styles.circles}>
+      <div className={styles.circles} data-testid="circlesContainer">
         {renderCircles()}
       </div>
     </SolutionLayout>

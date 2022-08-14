@@ -34,7 +34,7 @@ export const StringComponent: FC = () => {
     const splitString = stringValue.split("").map((item) => ({ status: ElementStates.Default, value: item }));
     setReverseButtonState('inProgress');
     setSplitString(splitString);
-    setArraySteps(getReversingStringSteps(splitString));
+    setArraySteps(getReversingStringSteps(splitString)!);
   };
 
   const startAnim = () => {
@@ -65,6 +65,7 @@ export const StringComponent: FC = () => {
           value={stringValue}
           isLimitText={true}
           maxLength={11}
+          data-testid="input"
           onChange={(e) => onChangeString(e as ChangeEvent<HTMLInputElement>)}
         />
         <Button
@@ -72,9 +73,10 @@ export const StringComponent: FC = () => {
           onClick={onClickButton}
           disabled={!stringValue}
           isLoader={reverseButtonState === 'inProgress'}
+          data-testid="button"
         />
       </div>
-      <div className={styles.circle}>
+      <div className={styles.circle} data-testid="circlesContainer">
         {splitString.length
           ? (arraySteps.length ? arraySteps[currentStep] : splitString).map((item, index) => (
             <Circle letter={item.value} state={item.status} key={index} />

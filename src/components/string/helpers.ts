@@ -2,8 +2,8 @@ import { TSplitString } from "./string";
 import { ElementStates } from "../../types/element-states";
 
 export const getReversingStringSteps = (
-  splitString: TSplitString
-): TSplitString[] => {
+  splitString: TSplitString | []
+): TSplitString[] | null => {
   const arraySteps: TSplitString[] = [];
 
   const expandString = (
@@ -11,6 +11,11 @@ export const getReversingStringSteps = (
     start: number = 0,
     end: number = array.length - 1
   ) => {
+
+    if (!splitString.length) {
+      return arraySteps;
+    }
+
     if (start >= end || array.length < 2) {
       array[start].status = ElementStates.Modified;
       arraySteps.push(copyArray(array));
