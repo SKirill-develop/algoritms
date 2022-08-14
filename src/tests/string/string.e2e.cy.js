@@ -1,4 +1,4 @@
-import { DELAY_IN_MS } from "../../../../Fibonachi-school/src/constants/delays";
+import { DELAY_IN_MS } from "/src/constants/delays";
 
 describe("Страница разворота строки функционирует корректно", function () {
   before(function () {
